@@ -1,0 +1,28 @@
+Front-end:
+-Create 2 separate htmls files: home and survey; jumbotron home.html file that links to the survey page, which should be a
+form based page with drop-down answer selections
+-Grab and compare input against data to trigger closest match modal pop-up
+
+Back-end:
+-Create 4 separate js files:  server, htmlRoutes, apiRoutes, friends.
+    *server.js: should contain code to start the web server
+    *friends.js: should contain the data to find your match, stored as an array of objects at '/app/data/friends.js'
+    *htmlRoutes.js: should contain two routes; GET to '/survey' page and a catch-all
+    *apiRoutes.js: should contain two routes; GET to '/api/friends' and a POST to '/api/friends'
+
+Functionality:
+When you visit the address for the homepage via the local server (localhost:8080/), the catchall GET will serve up the
+home.html page (assuming the server is running).  When the survey address (localhost:8080/survey) or hyperlink from the 
+home page is visited, the '/survey' GET will serve up the survey page.  These two gets will be housed within the
+'htmlRoutes.js' file.
+
+When the address for the existing friends database is visited (localhost:8080/api/friends) the server will serve the
+display all friends in JSON format from the 'friends.js' file. After completing the survey form and clicking on the submit
+button, a POST to 'api/friends' will be performed for the new friend (in JSON format) and will be added to the 'friends.js'
+file.
+
+After the POST to 'api/friends' has been performed, the new friend object properties will be converted into an array of
+numbers.  Then compare the difference between new friend's scores and the scores of existing friends, one question at a
+time (for each loop?).  Add up the differences to achieve a totalDifference value.  The user with the least amount of diff-
+erence will be the closest match.  Once the match has been identified, display a modal that shows the friend's name and
+photo.
